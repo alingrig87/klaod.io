@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/klaod.io/static/css/main.84da47e2.chunk.css",
+    "main.js": "/klaod.io/static/js/main.ebef73a1.chunk.js",
+    "main.js.map": "/klaod.io/static/js/main.ebef73a1.chunk.js.map",
+    "runtime-main.js": "/klaod.io/static/js/runtime-main.38e39b4a.js",
+    "runtime-main.js.map": "/klaod.io/static/js/runtime-main.38e39b4a.js.map",
+    "static/js/2.9139106d.chunk.js": "/klaod.io/static/js/2.9139106d.chunk.js",
+    "static/js/2.9139106d.chunk.js.map": "/klaod.io/static/js/2.9139106d.chunk.js.map",
+    "static/js/3.36280573.chunk.js": "/klaod.io/static/js/3.36280573.chunk.js",
+    "static/js/3.36280573.chunk.js.map": "/klaod.io/static/js/3.36280573.chunk.js.map",
+    "index.html": "/klaod.io/index.html",
+    "static/css/main.84da47e2.chunk.css.map": "/klaod.io/static/css/main.84da47e2.chunk.css.map",
+    "static/js/2.9139106d.chunk.js.LICENSE.txt": "/klaod.io/static/js/2.9139106d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.38e39b4a.js",
+    "static/js/2.9139106d.chunk.js",
+    "static/css/main.84da47e2.chunk.css",
+    "static/js/main.ebef73a1.chunk.js"
+  ]
+}
