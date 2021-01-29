@@ -37,7 +37,7 @@ class Board extends React.Component {
 		);
 
 		/* Drawing on Paint App */
-		ctx.lineWidth = 5;
+		ctx.lineWidth = 3;
 		ctx.lineJoin = 'round';
 		ctx.lineCap = 'round';
 		ctx.strokeStyle = 'blue';
