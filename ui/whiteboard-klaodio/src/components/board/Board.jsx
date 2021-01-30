@@ -20,28 +20,37 @@ class Board extends React.Component {
 		canvas.width = parseInt(sketch_style.getPropertyValue('width'));
 		canvas.height = parseInt(sketch_style.getPropertyValue('height'));
 
-		var mouse = { x: 0, y: 0 };
-		var last_mouse = { x: 0, y: 0 };
+		var mousePos = { x: 0, y: 0 };
+		var lastMousePos = { x: 0, y: 0 };
 
 		/* Mouse Capturing Work */
 		canvas.addEventListener(
 			'mousemove',
 			function (e) {
-				last_mouse.x = mouse.x;
-				last_mouse.y = mouse.y;
+				lastMousePos.x = mousePos.x;
+				lastMousePos.y = mousePos.y;
 
-				mouse.x = e.pageX - this.offsetLeft;
-				mouse.y = e.pageY - this.offsetTop;
+				mousePos.x = e.clientX - this.offsetLeft;
+				mousePos.y = e.clientY - this.offsetTop;
 			},
 			false
 		);
 
-		/* Drawing on Paint App */
-		ctx.lineWidth = 3;
-		ctx.lineJoin = 'round';
-		ctx.lineCap = 'round';
-		ctx.strokeStyle = 'blue';
+		// touch event on mobile
+		canvas.addEventListener(
+			'touchmove',
+			function (e) {
+				var touch = e.touches[0];
+				var mouseEvent = new MouseEvent('mousemove', {
+					clientX: touch.clientX,
+					clientY: touch.clientY,
+				});
+				canvas.dispatchEvent(mouseEvent);
+			},
+			false
+		);
 
+		// mouse down / touch start
 		canvas.addEventListener(
 			'mousedown',
 			function (e) {
@@ -51,6 +60,21 @@ class Board extends React.Component {
 		);
 
 		canvas.addEventListener(
+			'touchstart',
+			function (e) {
+				mousePos = getTouchPos(canvas, e);
+				var touch = e.touches[0];
+				var mouseEvent = new MouseEvent('mousedown', {
+					clientX: touch.clientX,
+					clientY: touch.clientY,
+				});
+				canvas.dispatchEvent(mouseEvent);
+			},
+			false
+		);
+
+		// mouse up, touch end
+		canvas.addEventListener(
 			'mouseup',
 			function () {
 				canvas.removeEventListener('mousemove', onPaint, false);
@@ -58,10 +82,35 @@ class Board extends React.Component {
 			false
 		);
 
+		// Set up touch events for mobile, etc
+		canvas.addEventListener(
+			'touchend',
+			function (e) {
+				var mouseEvent = new MouseEvent('mouseup', {});
+				canvas.dispatchEvent(mouseEvent);
+			},
+			false
+		);
+
+		// Get the position of a touch relative to the canvas
+		function getTouchPos(canvasDom, touchEvent) {
+			var rect = canvasDom.getBoundingClientRect();
+			return {
+				x: touchEvent.touches[0].clientX - rect.left,
+				y: touchEvent.touches[0].clientY - rect.top,
+			};
+		}
+
+		/* Drawing on Paint App */
+		ctx.lineWidth = 3;
+		ctx.lineJoin = 'round';
+		ctx.lineCap = 'round';
+		ctx.strokeStyle = 'black';
+
 		var onPaint = function () {
 			ctx.beginPath();
-			ctx.moveTo(last_mouse.x, last_mouse.y);
-			ctx.lineTo(mouse.x, mouse.y);
+			ctx.moveTo(lastMousePos.x, lastMousePos.y);
+			ctx.lineTo(mousePos.x, mousePos.y);
 			ctx.closePath();
 			ctx.stroke();
 		};
