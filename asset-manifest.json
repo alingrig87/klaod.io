@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/klaod.io/static/css/main.3863cc81.chunk.css",
-    "main.js": "/klaod.io/static/js/main.136c250d.chunk.js",
-    "main.js.map": "/klaod.io/static/js/main.136c250d.chunk.js.map",
+    "main.js": "/klaod.io/static/js/main.08a7ba24.chunk.js",
+    "main.js.map": "/klaod.io/static/js/main.08a7ba24.chunk.js.map",
     "runtime-main.js": "/klaod.io/static/js/runtime-main.e14cd624.js",
     "runtime-main.js.map": "/klaod.io/static/js/runtime-main.e14cd624.js.map",
     "static/css/2.7ee21296.chunk.css": "/klaod.io/static/css/2.7ee21296.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.7ee21296.chunk.css",
     "static/js/2.b0fa9b0b.chunk.js",
     "static/css/main.3863cc81.chunk.css",
-    "static/js/main.136c250d.chunk.js"
+    "static/js/main.08a7ba24.chunk.js"
   ]
 }
