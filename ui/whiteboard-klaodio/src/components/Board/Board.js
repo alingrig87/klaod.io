@@ -64,7 +64,32 @@ function Board() {
 		setPosition({ x: mousex, y: mousey });
 	}
 
+	function preventDefault(e) {
+		e.preventDefault();
+	}
+	// modern Chrome requires { passive: false } when adding event
+	var supportsPassive = false;
+	try {
+		window.addEventListener(
+			'test',
+			null,
+			Object.defineProperty({}, 'passive', {
+				get: function () {
+					supportsPassive = true;
+				},
+			})
+		);
+	} catch (e) {}
+
+	var wheelOpt = supportsPassive ? { passive: false } : false;
+
+	// call this to Disable
+	function disableScroll() {
+		window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+	}
+
 	function handleTouchMove(e) {
+		disableScroll();
 		let mousex = e.touches[0].clientX - canvasOffset.x;
 		let mousey = e.touches[0].clientY - canvasOffset.y;
 		if (drawing) {
