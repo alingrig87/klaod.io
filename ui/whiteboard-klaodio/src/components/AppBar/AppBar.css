@@ -1,0 +1,21 @@
+.appbar {
+	position: absolute;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	width: auto;
+}
+.appbar .fa-icon {
+	cursor: pointer;
+	font-size: 2.5rem;
+	margin: 0.5rem;
+	padding: 0.5rem;
+	border-radius: 30%;
+	box-shadow: 0 0 6px gray;
+	z-index: 2;
+	color: black;
+}
+
+.brand {
+	coolor: white;
+}

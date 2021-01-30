@@ -1,8 +1,13 @@
+import React from 'react';
 import './App.css';
-import Container from './components/container/Container';
+import Board from './components/Board/Board';
 
 function App() {
-	return <Container></Container>;
+	return (
+		<div className="app">
+			<Board />
+		</div>
+	);
 }
 
 export default App;
