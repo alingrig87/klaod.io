@@ -12,6 +12,8 @@ class Board extends React.Component {
 	}
 
 	drawOnCanvas() {
+		preventScrolling();
+
 		var canvas = document.querySelector('#board');
 		var ctx = canvas.getContext('2d');
 
@@ -114,6 +116,37 @@ class Board extends React.Component {
 			ctx.closePath();
 			ctx.stroke();
 		};
+
+		function preventScrolling() {
+			// Prevent scrolling when touching the canvas
+			document.body.addEventListener(
+				'touchstart',
+				function (e) {
+					if (e.target == canvas) {
+						e.preventDefault();
+					}
+				},
+				false
+			);
+			document.body.addEventListener(
+				'touchend',
+				function (e) {
+					if (e.target == canvas) {
+						e.preventDefault();
+					}
+				},
+				false
+			);
+			document.body.addEventListener(
+				'touchmove',
+				function (e) {
+					if (e.target == canvas) {
+						e.preventDefault();
+					}
+				},
+				false
+			);
+		}
 	}
 
 	render() {
